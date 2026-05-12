@@ -45,7 +45,10 @@ services:
         condition: service_healthy
     environment:
       DATABASE_URL: "postgresql://${POSTGRES_USER:-ecopilot_user}:${POSTGRES_PASSWORD:-changeme}@db:5432/${POSTGRES_DB:-ecopilot_db}"
-    command: ["npx", "prisma", "db", "push"]
+    command: >
+      sh -c 'printf "DATABASE_URL=%s\n" "$$DATABASE_URL" > /app/.env
+      && npx prisma db push
+      && rm -f /app/.env'
     profiles:
       - tools
 
