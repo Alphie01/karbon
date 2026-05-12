@@ -1,0 +1,58 @@
+node_modules
+.next
+.git
+.gitignore
+
+# Environment files (never include secrets in image)
+.env
+.env.local
+.env.*.local
+.env.production
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Test output
+coverage
+.nyc_output
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Editor configs
+.vscode
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Temp and backup files
+*.bak
+*.old
+*.tmp
+tmp/
+
+# Local database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Playwright / Cypress output
+test-results/
+playwright-report/
+cypress/videos/
+cypress/screenshots/
+
+# Build artifacts (will be rebuilt in Docker)
+out/
+publish/
+linux-deploy/
+
+# Dev scripts that don't belong in the image
+scripts/

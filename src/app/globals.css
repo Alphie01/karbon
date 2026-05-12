@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* LIGHT MODE */
+  --background: #ffffff;
+  --foreground: #020617;
+
+  /* Brand Colors - Light */
+  --brand-navy: #0f172a;
+  /* Dark Blue/Slate */
+  --brand-navy-text: #ffffff;
+  /* Text on Navy bg should be white */
+  --brand-green: #059669;
+  --brand-beige: #f1f5f9;
+}
+
+.dark {
+  /* DARK MODE */
+  --background: #020617;
+  --foreground: #ffffff;
+
+  /* Brand Colors - Dark */
+  /* In dark mode, we usually want "brand-navy" surfaces to remain dark or be slightly lighter than bg, 
+     but NOT white. If user wants "dark mode", main elements should be dark. 
+     Previously it was inverted to slate-50 which caused white-on-white with text-white. 
+     Let's make brand-navy slightly lighter than background for cards, or keep it dark. */
+  --brand-navy: #1e293b;
+  /* Slate-800 - Visible on Slate-950 bg */
+  --brand-navy-text: #ffffff;
+  /* Text on Slate-800 should be white */
+
+  --brand-green: #34d399;
+  --brand-beige: #1e293b;
+}
+
+@theme inline {
+  --color-brand-navy: var(--brand-navy);
+  --color-brand-navy-text: var(--brand-navy-text);
+  --color-brand-green: var(--brand-green);
+  --color-brand-beige: var(--brand-beige);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+input,
+select,
+textarea {
+  color: var(--foreground);
+  background-color: var(--background);
+}

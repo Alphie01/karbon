@@ -1,0 +1,380 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                String          @id @default(cuid())
+  name              String?
+  email             String          @unique
+  password          String?
+  companyName       String?
+  companyId         String?
+  roles             String          @default("STUDENT")
+  allowedModules    String          @default("ALL")
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+  isActive          Boolean         @default(true)
+  lastSeen          DateTime?
+  attentionLevel    String? // LOW, MEDIUM, HIGH
+  attentionTestDate DateTime?
+  company           Company?        @relation(fields: [companyId], references: [id])
+  supportTickets    SupportTicket[]
+}
+
+model Company {
+  id                 String            @id @default(cuid())
+  name               String
+  purchasedModules   String            @default("ALL")
+  subscriptionStatus String            @default("ACTIVE")
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime          @updatedAt
+  carbonEntries      CarbonEntry[]
+  customFactors      EmissionFactor[]
+  waterReports       WaterReport[]
+  businessProcesses  BusinessProcess[]
+  users              User[]
+  supportTickets     SupportTicket[]
+}
+
+model Course {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  thumbnail   String?
+  category    String   @default("Genel")
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  videos Video[]
+}
+
+model Video {
+  id             String  @id @default(cuid())
+  title          String
+  description    String?
+  url            String
+  thumbnail      String?
+  category       String? // Made optional for backward compatibility during transition
+  attentionLevel String? // LOW, MEDIUM, HIGH or null (Genel)
+
+  courseId String?
+  course   Course? @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  quizzes QuizQuestion[]
+}
+
+model QuizQuestion {
+  id      String @id @default(cuid())
+  videoId String
+  video   Video  @relation(fields: [videoId], references: [id], onDelete: Cascade)
+
+  timestamp        Int // Time in seconds when the question should appear
+  questionText     String
+  options          String // Stored as JSON string array: ["Option 1", "Option 2"]
+  correctOptionIdx Int // Index of the correct option (0-based)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Legislation {
+  id        String   @id @default(cuid())
+  title     String
+  category  String // Yönetmelik, Tebliğ, Rehber, Haber
+  summary   String?
+  content   String? // Rich text or long description
+  date      String? // Display date (e.g. "12 Şubat 2026")
+  url       String? // External link
+  pdfUrl    String? // File link
+  sourceUrl String? // Scrape origin URL (to avoid duplicates)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model LegislationCategory {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model MembershipRequest {
+  id          String   @id @default(cuid())
+  companyName String
+  contactName String
+  email       String
+  phone       String?
+  message     String?
+  status      String   @default("PENDING")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model SupportTicket {
+  id        String   @id @default(cuid())
+  userId    String
+  companyId String?
+  subject   String
+  message   String
+  status    String   @default("OPEN") // OPEN, IN_PROGRESS, CLOSED
+  priority  String   @default("MEDIUM") // LOW, MEDIUM, HIGH
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user    User     @relation(fields: [userId], references: [id])
+  company Company? @relation(fields: [companyId], references: [id])
+}
+
+model BusinessProcess {
+  id          String  @id @default(cuid())
+  companyId   String
+  company     Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  title       String
+  description String?
+
+  // Link to other modules
+  carbonEntries  CarbonEntry[]
+  waterProcesses WaterProcess[]
+  equipments     FacilityEquipment[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model FacilityEquipment {
+  id                String          @id @default(cuid())
+  businessProcessId String
+  businessProcess   BusinessProcess @relation(fields: [businessProcessId], references: [id], onDelete: Cascade)
+  
+  name              String
+  type              String          // GENERATOR, VEHICLE, MACHINE, SENSOR, OTHER
+  hasIoT            Boolean         @default(false)
+  iotStatus         String          @default("OFFLINE") // ONLINE, OFFLINE, MAINTENANCE
+  currentDraw       Float           @default(0) // base value for simulation
+  unit              String          @default("kW")
+  
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+}
+
+model CarbonEntry {
+  id                 String  @id @default(cuid())
+  companyId          String
+  scope              String
+  category           String
+  activity           String
+  amount             Float
+  unit               String
+  emissionFactor     Float
+  calculatedEmission Float
+  date               String
+  status             String  @default("PENDING")
+  description        String?
+
+  businessProcessId String?
+  businessProcess   BusinessProcess? @relation(fields: [businessProcessId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  company   Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+}
+
+model EmissionFactor {
+  id        String   @id @default(cuid())
+  name      String
+  scope     String
+  unit      String
+  value     Float
+  year      Int
+  source    String?
+  note      String?
+  isCustom  Boolean  @default(false)
+  companyId String?
+  company   Company? @relation(fields: [companyId], references: [id])
+}
+
+model WaterReport {
+  id        String  @id @default(cuid())
+  companyId String
+  company   Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  // Meta
+  year         Int
+  period       String // Annual, Monthly, etc.
+  orgName      String?
+  basin        String?
+  methodology  String?
+  boundary     String?
+  fu           String?
+  preparedBy   String?
+  contact      String?
+  dqNote       String?
+  boundaryNote String?
+
+  // Blue/Green Manual Inputs
+  blueDirect  Float   @default(0)
+  greenDirect Float   @default(0)
+  blueMethod  String? @default("NetConsumption")
+  greenMethod String? @default("Manual")
+
+  // Totals (Cached for easy querying)
+  totalWater Float @default(0)
+  blueWater  Float @default(0)
+  greenWater Float @default(0)
+  greyWater  Float @default(0)
+
+  status    String   @default("DRAFT") // DRAFT, FINAL
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  sources     WaterSource[]
+  processes   WaterProcess[]
+  greyEntries WaterGreyEntry[]
+}
+
+model WaterSource {
+  id       String      @id @default(cuid())
+  reportId String
+  report   WaterReport @relation(fields: [reportId], references: [id], onDelete: Cascade)
+  type     String
+  name     String
+  withdraw Float       @default(0)
+  return   Float       @default(0)
+  note     String?
+}
+
+model WaterProcess {
+  id          String      @id @default(cuid())
+  reportId    String
+  report      WaterReport @relation(fields: [reportId], references: [id], onDelete: Cascade)
+  date        String
+  name        String
+  type        String
+  input       Float       @default(0)
+  output      Float       @default(0)
+  product     Float?
+  productUnit String?
+  note        String?
+
+  businessProcessId String?
+  businessProcess   BusinessProcess? @relation(fields: [businessProcessId], references: [id])
+}
+
+model WaterGreyEntry {
+  id       String      @id @default(cuid())
+  reportId String
+  report   WaterReport @relation(fields: [reportId], references: [id], onDelete: Cascade)
+  date     String
+  param    String // COD, BOD, etc.
+  Q        Float // Discharge flow
+  Ceff     Float // Effluent conc
+  Cnat     Float // Natural conc
+  Cmax     Float // Max allowed conc
+  wfgrey   Float // Calculated Grey WF
+  evidence String?
+  note     String?
+}
+
+model Lead {
+  id            String  @id @default(cuid())
+  name          String // Company or Person Name
+  contactPerson String?
+  email         String?
+  phone         String?
+  status        String  @default("NEW") // NEW, CONTACTED, PROPOSAL, NEGOTIATION, WON, LOST
+  source        String? // Referral, LinkedIn, etc.
+  notes         String?
+
+  activities Activity[]
+  proposals  Proposal[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Activity {
+  id      String   @id @default(cuid())
+  leadId  String
+  lead    Lead     @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  type    String // MEETING, CALL, EMAIL, NOTE
+  subject String
+  notes   String?
+  date    DateTime @default(now())
+
+  // New Fields for Calendar
+  duration Int     @default(30) // Minutes
+  location String?
+
+  createdAt DateTime @default(now())
+}
+
+model Proposal {
+  id     String @id @default(cuid())
+  leadId String
+  lead   Lead   @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  title  String
+
+  // Financial Details
+  amount   Float  @default(0)
+  currency String @default("TRY") // TRY, USD, EUR
+  taxRate  Float  @default(20) // %
+
+  status     String    @default("DRAFT") // DRAFT, SENT, ACCEPTED, REJECTED
+  date       DateTime  @default(now())
+  validUntil DateTime?
+
+  // Content
+  terms String?
+  notes String?
+
+  items ProposalItem[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ProposalItem {
+  id         String   @id @default(cuid())
+  proposalId String
+  proposal   Proposal @relation(fields: [proposalId], references: [id], onDelete: Cascade)
+
+  description String
+  quantity    Float  @default(1)
+  unitPrice   Float
+  total       Float // quantity * unitPrice
+}
+
+model FinancialRecord {
+  id          String   @id @default(cuid())
+  type        String // INCOME, EXPENSE
+  category    String // Sales, Rent, Salaries, Office, etc.
+  amount      Float
+  currency    String   @default("TRY")
+  date        DateTime @default(now())
+  description String?
+
+  // Optional link to Lead/Customer
+  leadId String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model MailAccount {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  username  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
