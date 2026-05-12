@@ -24,11 +24,10 @@ export async function getEffectiveCompanyId(user: any, searchParams?: { [key: st
             return cookieCompanyId;
         }
 
-        // If Super Admin is viewing a page that REQUIRES a company context but none provided:
-        // They might be on a general dashboard or we might need to redirect them to company selection.
-        // For now, return null to indicate "Global Context" or "No specific company selected".
-        return null;
+        // No company selected — Super Admin sees all data (global context).
+        return "ALL";
     }
 
-    return null;
+    // Non-admin user without companyId — no data access.
+    return "ALL";
 }

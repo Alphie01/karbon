@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -14,11 +14,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+  themeColor: "#059669",
+};
+
 export const metadata: Metadata = {
   title: "EcoPilot — Bütünleşik Sürdürülebilirlik Platformu",
   description: "Karbon ayak izi, su ayak izi, hibe & teşvik robotu ve ESG raporlamasını tek platformda yönetin.",
   manifest: "/manifest.webmanifest",
-  themeColor: "#059669",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",

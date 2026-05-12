@@ -35,7 +35,7 @@ export default async function CorpWaterPage({ searchParams }: { searchParams: { 
 
     const reports = await getWaterReports(companyId);
     const processes = await prisma.businessProcess.findMany({
-        where: { companyId },
+        where: companyId === "ALL" ? undefined : { companyId },
         orderBy: { title: 'asc' }
     });
 

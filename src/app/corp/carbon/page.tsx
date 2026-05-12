@@ -44,7 +44,7 @@ export default async function CorpCarbonPage({ searchParams }: { searchParams: {
 
     const { entries, factors } = await getCarbonData(companyId);
     const processes = await prisma.businessProcess.findMany({
-        where: { companyId },
+        where: companyId === "ALL" ? undefined : { companyId },
         orderBy: { title: 'asc' }
     });
 
