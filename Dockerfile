@@ -45,8 +45,6 @@ COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
 COPY --from=builder /app/node_modules/@prisma ./node_modules/@prisma
 COPY --from=builder /app/prisma ./prisma
 
-# bcryptjs required by seed.js (standard PrismaClient handles DB connection via engine binary)
-COPY --from=builder /app/node_modules/bcryptjs ./node_modules/bcryptjs
 
 # Entrypoint: DB migrate on startup
 COPY --chown=nextjs:nodejs docker-entrypoint.sh /app/docker-entrypoint.sh

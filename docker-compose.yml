@@ -50,6 +50,21 @@ services:
     profiles:
       - tools
 
+  seed:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    container_name: ecopilot-seed
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: "postgresql://${POSTGRES_USER:-ecopilot_user}:${POSTGRES_PASSWORD:-changeme}@db:5432/${POSTGRES_DB:-ecopilot_db}"
+    command: sh -c 'node prisma/seed.js'
+    profiles:
+      - tools
+
   nginx:
     image: nginx:1.27-alpine
     container_name: ecopilot-nginx
