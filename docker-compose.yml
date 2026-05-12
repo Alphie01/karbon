@@ -34,6 +34,21 @@ services:
       APP_DOMAIN: "karbon.monolithsoftware.com.tr"
       NODE_ENV: production
 
+  migrate:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    container_name: ecopilot-migrate
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: "postgresql://${POSTGRES_USER:-ecopilot_user}:${POSTGRES_PASSWORD:-changeme}@db:5432/${POSTGRES_DB:-ecopilot_db}"
+    command: ["npx", "prisma", "db", "push"]
+    profiles:
+      - tools
+
   nginx:
     image: nginx:1.27-alpine
     container_name: ecopilot-nginx
