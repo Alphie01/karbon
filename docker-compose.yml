@@ -46,11 +46,11 @@ services:
 
   certbot:
     image: certbot/certbot:latest
-    container_name: ecopilot-certbot
     volumes:
       - certbot_www:/var/www/certbot
       - certbot_certs:/etc/letsencrypt
-    entrypoint: /bin/sh -c "trap exit TERM; while :; do certbot renew --webroot -w /var/www/certbot --quiet; sleep 12h; wait $${!}; done"
+    profiles:
+      - tools
 
 volumes:
   postgres_data:
