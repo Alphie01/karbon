@@ -124,20 +124,20 @@ function BarChart() {
         if (!chartRef.current) return;
         if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
         const bars = chartRef.current.querySelectorAll<HTMLElement>(".bar-inner");
-        const ctx = gsap.context(() => {
-            bars.forEach((bar, i) => {
-                gsap.fromTo(
-                    bar,
-                    { scaleY: 0, transformOrigin: "50% 100%" },
-                    {
-                        scaleY: 1, duration: 0.65, ease: "power3.out",
-                        delay: i * 0.04,
-                        scrollTrigger: { trigger: bar, start: "top 95%", once: true },
-                    },
-                );
-            });
-        }, chartRef.current);
-        return () => ctx.revert();
+        gsap.set(Array.from(bars), { scaleY: 0, transformOrigin: "50% 100%" });
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries.some(e => e.isIntersecting)) {
+                    observer.disconnect();
+                    gsap.to(Array.from(bars), {
+                        scaleY: 1, duration: 0.65, ease: "power3.out", stagger: 0.04,
+                    });
+                }
+            },
+            { threshold: 0.15 },
+        );
+        observer.observe(chartRef.current);
+        return () => observer.disconnect();
     }, []);
 
     return (
@@ -1082,9 +1082,13 @@ export default function HomePage() {
         if (!containerRef.current) return;
         if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
+        // The page scrolls inside the LayoutClient overflow-auto div, not window.
+        // Tell ScrollTrigger to listen on that element so scroll position is tracked correctly.
+        const scrollEl = document.getElementById("main-scroll");
+        ScrollTrigger.defaults({ scroller: scrollEl ?? window });
+
         const ctx = gsap.context(() => {
             // ── Hero intro timeline ──────────────────────────────────────
-            // fromTo is intentional here: sets FROM state before first paint.
             const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
             tl.fromTo(".hero-eyebrow", { y: 8,  opacity: 0 }, { y: 0, opacity: 1, duration: 0.5 },  0.05)
               .fromTo(".hero-title",   { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9 },  0.10)
@@ -1094,9 +1098,6 @@ export default function HomePage() {
               .fromTo(".hero-dash",    { y: 28, opacity: 0, scale: 0.985 }, { y: 0, opacity: 1, scale: 1, duration: 1.05 }, 0.20);
 
             // ── Section h2 scroll reveals ────────────────────────────────
-            // Use gsap.from() + immediateRender:false so the FROM state is only
-            // applied the moment ScrollTrigger fires, not on tween creation.
-            // This prevents off-screen h2s from blinking invisible on page load.
             gsap.utils.toArray<HTMLElement>("section h2").forEach(el => {
                 gsap.from(el, {
                     y: 24, opacity: 0, duration: 0.85, ease: "power3.out",
@@ -1105,10 +1106,13 @@ export default function HomePage() {
                 });
             });
 
-            // Bar chart bars are animated by BarChart's own useLayoutEffect.
+            // Bar chart bars are animated by BarChart's own IntersectionObserver.
         }, containerRef.current);
 
-        return () => ctx.revert();
+        return () => {
+            ctx.revert();
+            ScrollTrigger.defaults({ scroller: window });
+        };
     }, []);
 
 

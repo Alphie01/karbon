@@ -47,7 +47,7 @@ COPY --from=builder /app/prisma ./prisma
 
 # Entrypoint: DB migrate on startup
 COPY --chown=nextjs:nodejs docker-entrypoint.sh /app/docker-entrypoint.sh
-RUN chmod +x /app/docker-entrypoint.sh
+RUN chmod +x /app/docker-entrypoint.sh && touch /app/.env && chown nextjs:nodejs /app/.env
 
 USER nextjs
 

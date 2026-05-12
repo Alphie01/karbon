@@ -29,7 +29,7 @@ export default function LayoutClient({ children, session }: { children: React.Re
                 {!isHomePage && !isLoginPage && !isDashboard && !session && <Sidebar session={session} />}
 
                 <main className="flex-1 flex flex-col bg-background text-foreground overflow-hidden">
-                    <div className={`flex-1 overflow-auto ${isHomePage ? '' : 'p-4 md:p-8'} scroll-smooth relative`}>
+                    <div id="main-scroll" className={`flex-1 overflow-auto ${isHomePage ? '' : 'p-4 md:p-8'} scroll-smooth relative`}>
                         {children}
                     </div>
                 </main>
