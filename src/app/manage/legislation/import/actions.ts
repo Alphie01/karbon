@@ -1,10 +1,8 @@
 "use server";
 
 import { loginToForum, fetchTopics, fetchTopicContent, CrawlerTopic } from "@/services/crawler";
-import { PrismaClient } from "@prisma/client";
-import { revalidatePath } from "next/cache";
+import { prisma } from "@/lib/prisma";import { revalidatePath } from "next/cache";
 
-const prisma = new PrismaClient();
 
 export async function authenticateAndList(formData: FormData) {
     const username = formData.get("username") as string;

@@ -1,9 +1,7 @@
 import { NextResponse } from 'next/server';
 import axios from 'axios';
 import * as cheerio from 'cheerio';
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import { prisma } from "@/lib/prisma";
 
 // Kullanıcının özellikle istediği ana başlıklar
 const ALLOWED_CATEGORIES = [

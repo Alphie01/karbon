@@ -1,10 +1,8 @@
 "use server";
 
 import mysql from "mysql2/promise";
-import { PrismaClient } from "@prisma/client";
-import { revalidatePath } from "next/cache";
+import { prisma } from "@/lib/prisma";import { revalidatePath } from "next/cache";
 
-const prisma = new PrismaClient();
 
 // Helper to create connection
 async function getConnection(config: any) {

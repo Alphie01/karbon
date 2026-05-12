@@ -1,10 +1,8 @@
 "use server";
 
 import { auth } from "@/auth";
-import { PrismaClient } from "@prisma/client";
-import { revalidatePath } from "next/cache";
+import { prisma } from "@/lib/prisma";import { revalidatePath } from "next/cache";
 
-const prisma = new PrismaClient();
 
 // Get all legislation items
 export async function getLegislation() {
