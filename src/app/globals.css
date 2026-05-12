@@ -46,6 +46,33 @@
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* EcoPilot brand palette */
+  --color-ink-900: #0B1620;
+  --color-ink-800: #101E2A;
+  --color-ink-700: #1A2A38;
+  --color-ink-600: #2A3B4A;
+  --color-ink-500: #475568;
+  --color-ink-400: #6B7785;
+  --color-ink-300: #9AA3AE;
+  --color-ink-200: #C9CED4;
+  --color-ink-100: #E6E8EB;
+  --color-ink-50: #F5F4F0;
+
+  --color-forest-900: #0F2E22;
+  --color-forest-700: #1F4D3A;
+  --color-forest-500: #2E6B52;
+  --color-forest-300: #7BA694;
+  --color-forest-100: #DCE7E1;
+
+  --color-deep-900: #0E2438;
+  --color-deep-700: #1F3E5C;
+  --color-deep-500: #2D5F8B;
+  --color-deep-300: #7FA0BE;
+  --color-deep-100: #DDE6EF;
+
+  --color-amber-500: #C6873B;
+  --color-amber-400: #D49B57;
 }
 
 body {
@@ -61,3 +88,26 @@ textarea {
   color: var(--foreground);
   background-color: var(--background);
 }
+
+/* ── EcoPilot landing helpers ────────────────────────────────── */
+.topo-bg {
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+.dot-bg {
+  background-image: radial-gradient(rgba(11,22,32,0.10) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+.hairline       { border-color: rgba(11,22,32,0.10) !important; }
+.hairline-light { border-color: rgba(255,255,255,0.10) !important; }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track { animation: marquee 40s linear infinite; }
+
+.home-page section[id] { scroll-margin-top: 68px; }
+.dash-bar { transform-origin: bottom; }

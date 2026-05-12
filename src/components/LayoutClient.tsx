@@ -21,8 +21,8 @@ export default function LayoutClient({ children, session }: { children: React.Re
             {/* Activity Heartbeat */}
             <ActivityTracker session={session} />
 
-            {/* Global Header: Visible everywhere except login and dashboard pages */}
-            {!isLoginPage && !isDashboard && <GlobalHeader session={session} />}
+            {/* Global Header: hidden on home (has its own header) and login/dashboard */}
+            {!isLoginPage && !isDashboard && !isHomePage && <GlobalHeader session={session} />}
 
             <div className="flex flex-1 overflow-hidden md:flex-row">
                 {/* Sidebar: Visible ONLY for Guests (Demo Mode). Hidden for logged-in Corporate Users (Full focus). */}
