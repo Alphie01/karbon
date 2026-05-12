@@ -9,6 +9,8 @@ services:
       POSTGRES_DB: ${POSTGRES_DB:-ecopilot_db}
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-ecopilot_user} -d ${POSTGRES_DB:-ecopilot_db}"]
       interval: 10s
