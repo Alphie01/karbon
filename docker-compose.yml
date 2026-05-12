@@ -30,6 +30,7 @@ services:
       DATABASE_URL: "postgresql://${POSTGRES_USER:-ecopilot_user}:${POSTGRES_PASSWORD:-changeme}@db:5432/${POSTGRES_DB:-ecopilot_db}"
       NEXTAUTH_URL: ${NEXTAUTH_URL:-https://karbon.monolithsoftware.com.tr}
       NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
+      AUTH_SECRET: ${NEXTAUTH_SECRET}
       AUTH_TRUST_HOST: "true"
       APP_DOMAIN: "karbon.monolithsoftware.com.tr"
       NODE_ENV: production

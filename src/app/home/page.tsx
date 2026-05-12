@@ -95,14 +95,14 @@ function KPI({ label, value, unit, delta, deltaPos, accent = "forest" }: { label
         ink: "text-ink-100",
     };
     return (
-        <div className="p-3 border border-white/10 rounded bg-ink-900/40">
-            <div className="font-mono text-[10px] uppercase tracking-widest text-ink-400">{label}</div>
-            <div className="mt-1.5 flex items-baseline gap-1.5">
-                <div className={`text-xl font-medium tabular-nums ${accentMap[accent]}`}>{value}</div>
-                <div className="text-[10px] text-ink-400 font-mono">{unit}</div>
+        <div className="p-2.5 border border-white/10 rounded bg-ink-900/40 min-w-0">
+            <div className="font-mono text-[9px] uppercase tracking-widest text-ink-400 leading-tight truncate">{label}</div>
+            <div className="mt-1 flex items-baseline gap-1 flex-wrap">
+                <div className={`text-lg font-medium tabular-nums leading-none ${accentMap[accent]}`}>{value}</div>
+                <div className="text-[9px] text-ink-400 font-mono truncate">{unit}</div>
             </div>
             {delta && (
-                <div className="mt-1 flex items-center gap-1 text-[10px] font-mono">
+                <div className="mt-1 flex items-center gap-1 text-[9px] font-mono">
                     <span className={deltaPos ? "text-forest-300" : "text-amber-400"}>
                         {deltaPos ? "↓" : "↑"} {delta}
                     </span>
@@ -257,25 +257,25 @@ function DashboardMockup({ compact = false }: { compact?: boolean }) {
     return (
         <DashChrome>
             <div className="flex">
-                <DashSidebar />
-                <div className="flex-1 p-4 bg-ink-800 overflow-hidden">
-                    <div className="flex items-center justify-between mb-4">
+                {!compact && <DashSidebar />}
+                <div className="flex-1 p-4 bg-ink-800 overflow-hidden min-w-0">
+                    <div className="flex items-center justify-between mb-3">
                         <div>
                             <div className="font-mono text-[10px] uppercase tracking-widest text-ink-400">Genel Bakış</div>
-                            <div className="text-base text-ink-100 font-medium mt-0.5">Karbon &amp; Su · 2025</div>
+                            <div className={`${compact ? "text-sm" : "text-base"} text-ink-100 font-medium mt-0.5`}>Karbon &amp; Su · 2025</div>
                         </div>
-                        <div className="hidden sm:flex items-center gap-1 font-mono text-[10px]">
+                        <div className="flex items-center gap-1 font-mono text-[10px]">
                             <span className="px-2 py-1 border border-white/10 text-ink-300 rounded">2024</span>
                             <span className="px-2 py-1 border border-forest-700 bg-forest-700/30 text-forest-300 rounded">2025</span>
                         </div>
                     </div>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2">
-                        <KPI label="Karbon (Scope 1+2)" value="734" unit="tCO₂e" delta="12.4%" deltaPos accent="forest" />
+                    <div className={`grid gap-2 mb-2 ${compact ? "grid-cols-2" : "grid-cols-2 md:grid-cols-4"}`}>
+                        <KPI label={compact ? "Karbon S1+2" : "Karbon (Scope 1+2)"} value="734" unit="tCO₂e" delta="12.4%" deltaPos accent="forest" />
                         <KPI label="Su Çekimi" value="18.4" unit="bin m³" delta="9.1%" deltaPos accent="deep" />
                         <KPI label="Açık Teşvik" value="14" unit="başvuru" accent="amber" />
                         <KPI label="Eğitim" value="78%" unit="ekip" delta="6 pt" deltaPos accent="ink" />
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-2">
+                    <div className={`grid gap-2 mb-2 ${compact ? "grid-cols-2" : "grid-cols-1 md:grid-cols-2"}`}>
                         <BarChart />
                         <WaterChart />
                     </div>
@@ -477,9 +477,9 @@ function SiteHeader() {
                     <Link href="/login" className={`hidden sm:inline-flex items-center gap-1.5 text-[13px] px-3 py-2 transition-colors ${scrolled ? "text-ink-700 hover:text-ink-900" : "text-ink-200 hover:text-ink-50"}`}>
                         Giriş Yap
                     </Link>
-                    <Link href="/request-access" className={`inline-flex items-center gap-1.5 text-[13px] font-medium px-3.5 py-2 rounded-sm transition-colors ${scrolled ? "bg-ink-900 text-ink-50 hover:bg-ink-800" : "bg-ink-50 text-ink-900 hover:bg-white"}`}>
+                    <a href="#iletisim" className={`inline-flex items-center gap-1.5 text-[13px] font-medium px-3.5 py-2 rounded-sm transition-colors ${scrolled ? "bg-ink-900 text-ink-50 hover:bg-ink-800" : "bg-ink-50 text-ink-900 hover:bg-white"}`}>
                         Platforma Katıl <IcArrow size={14} />
-                    </Link>
+                    </a>
                     <button className="lg:hidden p-2 -mr-2" onClick={() => setOpen(!open)} aria-label="Menü">
                         {open ? <IcXIcon size={20} className={scrolled ? "text-ink-900" : "text-ink-50"} /> : <IcMenu size={20} className={scrolled ? "text-ink-900" : "text-ink-50"} />}
                     </button>
@@ -991,9 +991,9 @@ function CTASection() {
                         </p>
                     </div>
                     <div className="md:col-span-4 flex flex-col gap-3 md:items-end">
-                        <Link href="/request-access" className="inline-flex items-center justify-between gap-3 bg-ink-50 text-ink-900 px-5 py-3.5 rounded-sm text-[14px] font-medium w-full md:w-[280px] hover:bg-white transition-colors">
+                        <a href="#iletisim" className="inline-flex items-center justify-between gap-3 bg-ink-50 text-ink-900 px-5 py-3.5 rounded-sm text-[14px] font-medium w-full md:w-[280px] hover:bg-white transition-colors">
                             EcoPilot&apos;u İncele <IcArrow size={16} />
-                        </Link>
+                        </a>
                         <a href="mailto:info@monolithyazilim.com" className="inline-flex items-center justify-between gap-3 border border-white/20 text-ink-100 px-5 py-3.5 rounded-sm text-[14px] w-full md:w-[280px] hover:bg-white/5 transition-colors">
                             Monolith Yazılım ile İletişim <IcArrowUR size={16} />
                         </a>
