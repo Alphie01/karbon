@@ -26,6 +26,7 @@ docker run --rm \
     --email "$EMAIL" \
     --agree-tos \
     --no-eff-email \
+    --keep-until-expiring \
     -d "$DOMAIN"
 
 echo "==> [4/4] Restoring full nginx config with SSL..."
