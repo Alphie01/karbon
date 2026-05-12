@@ -9,7 +9,7 @@ export default auth((req) => {
     const hostname = req.headers.get("host") || "";
 
     // 1. Parse Subdomain
-    const appDomain = process.env.APP_DOMAIN || "beyondlimitsturkiye.tech";
+    const appDomain = process.env.APP_DOMAIN || "karbon.monolithsoftware.com.tr";
     let subdomain = null;
     if (hostname.includes(appDomain)) {
         const parts = hostname.split(".");

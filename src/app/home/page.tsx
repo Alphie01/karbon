@@ -1,7 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect, useRef } from "react";
 import Link from "next/link";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 // ─── Minimal SVG Icons ───────────────────────────────────────────────────
 function Ic({ children, size = 20, className = "" }: { children: React.ReactNode; size?: number; className?: string }) {
@@ -110,12 +114,34 @@ function KPI({ label, value, unit, delta, deltaPos, accent = "forest" }: { label
 }
 
 function BarChart() {
+    const chartRef = useRef<HTMLDivElement>(null);
     const months = ["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"];
     const data   = [78, 82, 71, 69, 64, 58, 61, 55, 52, 48, 51, 46];
     const target = [70, 70, 68, 66, 62, 60, 58, 56, 54, 52, 50, 48];
     const max = 90;
+
+    useLayoutEffect(() => {
+        if (!chartRef.current) return;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        const bars = chartRef.current.querySelectorAll<HTMLElement>(".bar-inner");
+        const ctx = gsap.context(() => {
+            bars.forEach((bar, i) => {
+                gsap.fromTo(
+                    bar,
+                    { scaleY: 0, transformOrigin: "50% 100%" },
+                    {
+                        scaleY: 1, duration: 0.65, ease: "power3.out",
+                        delay: i * 0.04,
+                        scrollTrigger: { trigger: bar, start: "top 95%", once: true },
+                    },
+                );
+            });
+        }, chartRef.current);
+        return () => ctx.revert();
+    }, []);
+
     return (
-        <div className="p-4 border border-white/10 rounded bg-ink-900/40">
+        <div ref={chartRef} className="p-4 border border-white/10 rounded bg-ink-900/40">
             <div className="flex items-start justify-between mb-3">
                 <div>
                     <div className="font-mono text-[10px] uppercase tracking-widest text-ink-400">Aylık Emisyon</div>
@@ -132,8 +158,8 @@ function BarChart() {
                 {data.map((v, i) => (
                     <div key={i} className="flex-1 flex flex-col items-center justify-end h-full relative">
                         <div
-                            className="dash-bar w-full bg-forest-500/70 relative"
-                            style={{ height: `${(v / max) * 100}%`, transformOrigin: "bottom" }}
+                            className="bar-inner w-full bg-forest-500/70 relative"
+                            style={{ height: `${(v / max) * 100}%` }}
                         >
                             <div className="absolute left-0 right-0 border-t border-deep-300 border-dashed"
                                 style={{ top: `${100 - (target[i] / v) * 100}%` }} />
@@ -1048,52 +1074,46 @@ function SiteFooter() {
 
 // ─── Main ────────────────────────────────────────────────────────────────
 export default function HomePage() {
-    useEffect(() => {
-        const loadAnimations = async () => {
-            if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-            try {
-                const { gsap } = await import("gsap");
-                const { ScrollTrigger } = await import("gsap/ScrollTrigger");
-                gsap.registerPlugin(ScrollTrigger);
+    const containerRef = useRef<HTMLDivElement>(null);
 
-                const ctx = gsap.context(() => {
-                    // Hero intro
-                    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-                    tl.fromTo(".hero-eyebrow", { y: 8, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5 }, 0.05)
-                        .fromTo(".hero-title",   { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9 }, 0.10)
-                        .fromTo(".hero-body",    { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7 }, 0.25)
-                        .fromTo(".hero-ctas > *", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, stagger: 0.08 }, 0.40)
-                        .fromTo(".hero-stats > *", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, stagger: 0.08 }, 0.55)
-                        .fromTo(".hero-dash",    { y: 28, opacity: 0, scale: 0.985 }, { y: 0, opacity: 1, scale: 1, duration: 1.05 }, 0.20);
+    // useLayoutEffect fires before paint → eliminates the hero "flash" where
+    // elements briefly appear at full opacity before GSAP sets the FROM state.
+    useLayoutEffect(() => {
+        if (!containerRef.current) return;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-                    // Section h2 scroll reveals
-                    gsap.utils.toArray<HTMLElement>("section h2").forEach(el => {
-                        gsap.fromTo(el, { y: 24, opacity: 0 }, {
-                            y: 0, opacity: 1, duration: 0.85, ease: "power3.out",
-                            scrollTrigger: { trigger: el, start: "top 82%" },
-                        });
-                    });
+        const ctx = gsap.context(() => {
+            // ── Hero intro timeline ──────────────────────────────────────
+            // fromTo is intentional here: sets FROM state before first paint.
+            const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+            tl.fromTo(".hero-eyebrow", { y: 8,  opacity: 0 }, { y: 0, opacity: 1, duration: 0.5 },  0.05)
+              .fromTo(".hero-title",   { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9 },  0.10)
+              .fromTo(".hero-body",    { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7 },  0.25)
+              .fromTo(".hero-ctas > *",  { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, stagger: 0.08 }, 0.40)
+              .fromTo(".hero-stats > *", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, stagger: 0.08 }, 0.55)
+              .fromTo(".hero-dash",    { y: 28, opacity: 0, scale: 0.985 }, { y: 0, opacity: 1, scale: 1, duration: 1.05 }, 0.20);
 
-                    // Bar chart bars
-                    gsap.utils.toArray<HTMLElement>(".dash-bar").forEach((bar, i) => {
-                        gsap.fromTo(bar, { scaleY: 0 }, {
-                            scaleY: 1, duration: 0.7, ease: "power3.out",
-                            delay: (i % 12) * 0.04,
-                            scrollTrigger: { trigger: bar, start: "top 92%" },
-                        });
-                    });
+            // ── Section h2 scroll reveals ────────────────────────────────
+            // Use gsap.from() + immediateRender:false so the FROM state is only
+            // applied the moment ScrollTrigger fires, not on tween creation.
+            // This prevents off-screen h2s from blinking invisible on page load.
+            gsap.utils.toArray<HTMLElement>("section h2").forEach(el => {
+                gsap.from(el, {
+                    y: 24, opacity: 0, duration: 0.85, ease: "power3.out",
+                    immediateRender: false,
+                    scrollTrigger: { trigger: el, start: "top 82%", once: true },
                 });
+            });
 
-                return () => ctx.revert();
-            } catch {
-                // GSAP unavailable — content remains visible
-            }
-        };
-        loadAnimations();
+            // Bar chart bars are animated by BarChart's own useLayoutEffect.
+        }, containerRef.current);
+
+        return () => ctx.revert();
     }, []);
 
+
     return (
-        <div className="home-page min-h-screen bg-ink-900 text-ink-50" style={{ scrollBehavior: "smooth" }}>
+        <div ref={containerRef} className="home-page min-h-screen bg-ink-900 text-ink-50" style={{ scrollBehavior: "smooth" }}>
             <SiteHeader />
             <HeroSection />
             <AttributionSection />
