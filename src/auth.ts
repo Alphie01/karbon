@@ -19,14 +19,20 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                         .object({ email: z.string().email(), password: z.string().min(6) })
                         .safeParse(credentials);
 
-                    if (!parsedCredentials.success) return null;
+                    if (!parsedCredentials.success) {
+                        console.log("[auth] parse failed:", parsedCredentials.error.flatten());
+                        return null;
+                    }
 
                     const { email, password } = parsedCredentials.data;
+                    console.log("[auth] looking up:", email);
                     const user = await prisma.user.findUnique({ where: { email } });
+                    console.log("[auth] user found:", !!user, "has password:", !!user?.password);
 
                     if (!user || !user.password) return null;
 
                     const passwordsMatch = await bcrypt.compare(password, user.password);
+                    console.log("[auth] password match:", passwordsMatch);
                     if (passwordsMatch) return user;
 
                     return null;
