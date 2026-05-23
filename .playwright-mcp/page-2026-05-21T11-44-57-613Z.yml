@@ -1,0 +1,698 @@
+- generic [active] [ref=e1]:
+  - main [ref=e4]:
+    - generic [ref=e6]:
+      - generic [ref=e8]:
+        - link "EcoPilot by Monolith Yazılım" [ref=e9] [cursor=pointer]:
+          - /url: "#top"
+          - generic [ref=e10]: EcoPilot
+          - generic [ref=e11]: by Monolith Yazılım
+        - navigation [ref=e12]:
+          - link "Modüller" [ref=e13] [cursor=pointer]:
+            - /url: "#moduller"
+          - link "Nasıl Çalışır?" [ref=e14] [cursor=pointer]:
+            - /url: "#nasil-calisir"
+          - link "Platform" [ref=e15] [cursor=pointer]:
+            - /url: "#platform"
+          - link "Plastik Sektörü" [ref=e16] [cursor=pointer]:
+            - /url: "#plastik-sektoru"
+          - link "İletişim" [ref=e17] [cursor=pointer]:
+            - /url: "#iletisim"
+        - generic [ref=e18]:
+          - link "Giriş Yap" [ref=e19] [cursor=pointer]:
+            - /url: /login
+          - link "Platforma Katıl" [ref=e20] [cursor=pointer]:
+            - /url: "#iletisim"
+            - text: Platforma Katıl
+            - img [ref=e21]
+      - generic [ref=e23]:
+        - generic [ref=e24]:
+          - generic [ref=e25]:
+            - generic [ref=e26]: Sürdürülebilirlik Platformu
+            - generic [ref=e28]: /
+            - generic [ref=e29]: BTSO Plastik Komitesi için geliştirildi
+            - generic [ref=e30]: /
+            - generic [ref=e31]: v2.4 · 2026
+          - generic [ref=e32]:
+            - generic [ref=e33]:
+              - heading "Plastik sektörü için sürdürülebilirlik ölçüm ve yönetim platformu." [level=1] [ref=e34]:
+                - text: Plastik sektörü için
+                - text: sürdürülebilirlik
+                - text: ölçüm ve yönetim platformu.
+              - paragraph [ref=e35]: EcoPilot, Monolith Yazılım tarafından BTSO Plastik Komitesi için geliştirilen; karbon ayak izi, su ayak izi, teşvik, CRM ve akademik eğitim süreçlerini tek dijital platformda bir araya getiren kurumsal sürdürülebilirlik çözümüdür.
+              - generic [ref=e36]:
+                - link "Platformu İncele" [ref=e37] [cursor=pointer]:
+                  - /url: "#platform"
+                  - text: Platformu İncele
+                  - img [ref=e38]
+                - link "Modülleri Gör" [ref=e40] [cursor=pointer]:
+                  - /url: "#moduller"
+              - generic [ref=e41]:
+                - generic [ref=e42]:
+                  - term [ref=e43]: "5"
+                  - definition [ref=e44]: Entegre modül
+                - generic [ref=e45]:
+                  - term [ref=e46]: ISO 14064‑1
+                  - definition [ref=e47]: Hesaplama referansı
+                - generic [ref=e48]:
+                  - term [ref=e49]: Rol bazlı
+                  - definition [ref=e50]: Kurumsal erişim
+            - generic [ref=e52]:
+              - generic [ref=e54]:
+                - generic [ref=e55]:
+                  - generic [ref=e60]: EcoPilot · Dashboard
+                  - generic [ref=e61]: v2.4 · prod
+                - generic [ref=e63]:
+                  - generic [ref=e64]:
+                    - generic [ref=e65]:
+                      - generic [ref=e66]: Genel Bakış
+                      - generic [ref=e67]: Karbon & Su · 2025
+                    - generic [ref=e68]:
+                      - generic [ref=e69]: "2024"
+                      - generic [ref=e70]: "2025"
+                  - generic [ref=e71]:
+                    - generic [ref=e72]:
+                      - generic [ref=e73]: Karbon S1+2
+                      - generic [ref=e74]:
+                        - generic [ref=e75]: "734"
+                        - generic [ref=e76]: tCO₂e
+                      - generic [ref=e77]:
+                        - generic [ref=e78]: ↓ 12.4%
+                        - generic [ref=e79]: YoY
+                    - generic [ref=e80]:
+                      - generic [ref=e81]: Su Çekimi
+                      - generic [ref=e82]:
+                        - generic [ref=e83]: "18.4"
+                        - generic [ref=e84]: bin m³
+                      - generic [ref=e85]:
+                        - generic [ref=e86]: ↓ 9.1%
+                        - generic [ref=e87]: YoY
+                    - generic [ref=e88]:
+                      - generic [ref=e89]: Açık Teşvik
+                      - generic [ref=e90]:
+                        - generic [ref=e91]: "14"
+                        - generic [ref=e92]: başvuru
+                    - generic [ref=e93]:
+                      - generic [ref=e94]: Eğitim
+                      - generic [ref=e95]:
+                        - generic [ref=e96]: 78%
+                        - generic [ref=e97]: ekip
+                      - generic [ref=e98]:
+                        - generic [ref=e99]: ↓ 6 pt
+                        - generic [ref=e100]: YoY
+                  - generic [ref=e101]:
+                    - generic [ref=e102]:
+                      - generic [ref=e103]:
+                        - generic [ref=e104]:
+                          - generic [ref=e105]: Aylık Emisyon
+                          - generic [ref=e106]: Karbon (tCO₂e) · 2025
+                        - generic [ref=e108]: Ölçüm
+                      - generic [ref=e123]:
+                        - generic [ref=e124]: Oca
+                        - generic [ref=e125]: Şub
+                        - generic [ref=e126]: Mar
+                        - generic [ref=e127]: Nis
+                        - generic [ref=e128]: May
+                        - generic [ref=e129]: Haz
+                        - generic [ref=e130]: Tem
+                        - generic [ref=e131]: Ağu
+                        - generic [ref=e132]: Eyl
+                        - generic [ref=e133]: Eki
+                        - generic [ref=e134]: Kas
+                        - generic [ref=e135]: Ara
+                    - generic [ref=e136]:
+                      - generic [ref=e137]:
+                        - generic [ref=e138]:
+                          - generic [ref=e139]: Su Yoğunluğu
+                          - generic [ref=e140]: m³ / ton üretim
+                        - generic [ref=e141]:
+                          - generic [ref=e142]: "6.0"
+                          - generic [ref=e143]: ↓ 50% YoY
+                      - img [ref=e144]
+              - generic [ref=e159]:
+                - generic [ref=e160]: fig. 01 — Genel bakış paneli
+                - generic [ref=e161]: ecopilot.app/dashboard
+        - generic [ref=e164]:
+          - generic [ref=e165]:
+            - generic [ref=e166]:
+              - generic [ref=e167]: Karbon ayak izi · ISO 14064‑1
+              - generic [ref=e168]: ◆
+            - generic [ref=e169]:
+              - generic [ref=e170]: Su ayak izi · ISO 14046
+              - generic [ref=e171]: ◆
+            - generic [ref=e172]:
+              - generic [ref=e173]: Scope 1 · 2 · 3
+              - generic [ref=e174]: ◆
+            - generic [ref=e175]:
+              - generic [ref=e176]: Teşvik & hibe takibi
+              - generic [ref=e177]: ◆
+            - generic [ref=e178]:
+              - generic [ref=e179]: CRM & saha yönetimi
+              - generic [ref=e180]: ◆
+            - generic [ref=e181]:
+              - generic [ref=e182]: Akademik eğitim
+              - generic [ref=e183]: ◆
+            - generic [ref=e184]:
+              - generic [ref=e185]: Rol bazlı erişim
+              - generic [ref=e186]: ◆
+            - generic [ref=e187]:
+              - generic [ref=e188]: Çok şirketli yapı
+              - generic [ref=e189]: ◆
+          - generic [ref=e190]:
+            - generic [ref=e191]:
+              - generic [ref=e192]: Karbon ayak izi · ISO 14064‑1
+              - generic [ref=e193]: ◆
+            - generic [ref=e194]:
+              - generic [ref=e195]: Su ayak izi · ISO 14046
+              - generic [ref=e196]: ◆
+            - generic [ref=e197]:
+              - generic [ref=e198]: Scope 1 · 2 · 3
+              - generic [ref=e199]: ◆
+            - generic [ref=e200]:
+              - generic [ref=e201]: Teşvik & hibe takibi
+              - generic [ref=e202]: ◆
+            - generic [ref=e203]:
+              - generic [ref=e204]: CRM & saha yönetimi
+              - generic [ref=e205]: ◆
+            - generic [ref=e206]:
+              - generic [ref=e207]: Akademik eğitim
+              - generic [ref=e208]: ◆
+            - generic [ref=e209]:
+              - generic [ref=e210]: Rol bazlı erişim
+              - generic [ref=e211]: ◆
+            - generic [ref=e212]:
+              - generic [ref=e213]: Çok şirketli yapı
+              - generic [ref=e214]: ◆
+      - generic [ref=e217]:
+        - generic [ref=e218]:
+          - generic [ref=e219]: Proje Künyesi
+          - heading "Kurumsal bir iş birliği." [level=2] [ref=e220]
+        - generic [ref=e221]:
+          - generic [ref=e222]:
+            - generic [ref=e223]: Developed by
+            - generic [ref=e224]: Monolith Yazılım
+            - paragraph [ref=e225]: Yazılım mimarisi, arayüz ve dijital platform altyapısı.
+          - generic [ref=e226]:
+            - generic [ref=e227]: Developed for
+            - generic [ref=e228]: BTSO Plastik Komitesi
+            - paragraph [ref=e229]: Plastik sektörünün sürdürülebilirlik ihtiyaçları için.
+          - generic [ref=e230]:
+            - generic [ref=e231]: Focus Area
+            - generic [ref=e232]: Plastik sanayisi sürdürülebilirlik yönetimi
+            - paragraph [ref=e233]: Karbon, su, teşvik, CRM ve eğitim süreçleri.
+      - generic [ref=e236]:
+        - generic [ref=e237]:
+          - generic [ref=e238]: § 01 — Sektörel Bağlam
+          - heading "Plastik sektörü için ölçülebilir sürdürülebilirlik dönemi." [level=2] [ref=e239]:
+            - text: Plastik sektörü için
+            - text: ölçülebilir sürdürülebilirlik dönemi.
+          - paragraph [ref=e240]: Plastik sektörü; enerji kullanımı, su tüketimi, karbon emisyonları ve raporlama yükümlülükleri nedeniyle daha sistematik dijital araçlara ihtiyaç duyuyor. EcoPilot bu ihtiyaçları tek panel üzerinden yönetilebilir hale getirmek için geliştirildi.
+        - list [ref=e242]:
+          - listitem [ref=e243]:
+            - generic [ref=e244]: "01"
+            - generic [ref=e245]:
+              - generic [ref=e246]: Karbon emisyonlarını takip etme ihtiyacı
+              - paragraph [ref=e247]: Üretim, enerji ve lojistik kaynaklı emisyonlar; Scope 1‑2‑3 ayrımı yapılmadan değerlendirilemez. Tutarlı veri girişi ve hesaplama referansı gerekir.
+          - listitem [ref=e248]:
+            - generic [ref=e249]: "02"
+            - generic [ref=e250]:
+              - generic [ref=e251]: Su tüketimini ölçme gerekliliği
+              - paragraph [ref=e252]: Proses suyu, soğutma, temizlik ve hammadde adımlarındaki su yoğunluğu çoğu işletmede dağınık tutuluyor. Tek bir referans değere ihtiyaç var.
+          - listitem [ref=e253]:
+            - generic [ref=e254]: "03"
+            - generic [ref=e255]:
+              - generic [ref=e256]: Teşvik ve desteklere erişim zorluğu
+              - paragraph [ref=e257]: Sürdürülebilirlik ve çevre yatırımı teşvikleri farklı kurumlarda; başvuru takibi ve uygunluk değerlendirmesi merkezi değil.
+          - listitem [ref=e258]:
+            - generic [ref=e259]: "04"
+            - generic [ref=e260]:
+              - generic [ref=e261]: Sürdürülebilirlik bilgisinin dağınık olması
+              - paragraph [ref=e262]: Veri farklı tablolarda, sorumluluk farklı ekiplerde. Raporlama dönemi geldiğinde tutarlılığı sağlamak ekstra emek istiyor.
+      - generic [ref=e264]:
+        - generic [ref=e265]:
+          - generic [ref=e266]:
+            - generic [ref=e267]: § 02 — Platform Modülleri
+            - heading "Beş entegre modül, tek dijital platformda." [level=2] [ref=e268]:
+              - text: Beş entegre modül,
+              - text: tek dijital platformda.
+          - generic [ref=e269]: Modüller birbiriyle veri paylaşır ve tek bir kurumsal yapı içinde çalışır. Her modül gerçek bir iş akışını destekleyecek şekilde tasarlandı.
+        - generic [ref=e270]:
+          - button "M.01 Karbon" [ref=e271]:
+            - img [ref=e272]
+            - generic [ref=e275]: M.01
+            - generic [ref=e276]: Karbon
+          - button "M.02 Su" [ref=e277]:
+            - img [ref=e278]
+            - generic [ref=e281]: M.02
+            - generic [ref=e282]: Su
+          - button "M.03 Teşvik" [ref=e283]:
+            - img [ref=e284]
+            - generic [ref=e287]: M.03
+            - generic [ref=e288]: Teşvik
+          - button "M.04 CRM" [ref=e289]:
+            - img [ref=e290]
+            - generic [ref=e295]: M.04
+            - generic [ref=e296]: CRM
+          - button "M.05 Akademi" [ref=e297]:
+            - img [ref=e298]
+            - generic [ref=e301]: M.05
+            - generic [ref=e302]: Akademi
+        - generic [ref=e303]:
+          - generic [ref=e304]:
+            - generic [ref=e305]:
+              - img [ref=e307]
+              - generic [ref=e310]: M.01
+            - heading "Karbon Ayak İzi Ölçümü" [level=3] [ref=e311]
+            - paragraph [ref=e312]: İşletmelerin faaliyetlerinden kaynaklanan karbon etkisini ölçülebilir hale getirir; veri girişi, hesaplama ve raporlama tek akış içinde yürütülür.
+            - list [ref=e313]:
+              - listitem [ref=e314]:
+                - generic [ref=e315]: "01"
+                - generic [ref=e316]: Scope 1, 2 ve 3 ayrımı ile kategori bazlı veri girişi
+              - listitem [ref=e317]:
+                - generic [ref=e318]: "02"
+                - generic [ref=e319]: Tesis, hat ve süreç bazında emisyon kırılımı
+              - listitem [ref=e320]:
+                - generic [ref=e321]: "03"
+                - generic [ref=e322]: ISO 14064‑1 referanslı hesaplama mantığı
+              - listitem [ref=e323]:
+                - generic [ref=e324]: "04"
+                - generic [ref=e325]: Yıllık, çeyreklik ve dönemsel karşılaştırma
+            - generic [ref=e326]:
+              - text: Detaylı modül dökümanı
+              - img [ref=e327]
+          - generic [ref=e330]:
+            - generic [ref=e331]:
+              - generic [ref=e332]:
+                - generic [ref=e333]:
+                  - generic [ref=e334]: Aylık Emisyon
+                  - generic [ref=e335]: Karbon (tCO₂e) · 2025
+                - generic [ref=e337]: Ölçüm
+              - generic [ref=e352]:
+                - generic [ref=e353]: Oca
+                - generic [ref=e354]: Şub
+                - generic [ref=e355]: Mar
+                - generic [ref=e356]: Nis
+                - generic [ref=e357]: May
+                - generic [ref=e358]: Haz
+                - generic [ref=e359]: Tem
+                - generic [ref=e360]: Ağu
+                - generic [ref=e361]: Eyl
+                - generic [ref=e362]: Eki
+                - generic [ref=e363]: Kas
+                - generic [ref=e364]: Ara
+            - generic [ref=e365]:
+              - generic [ref=e366]: fig. M.01 — Aylık Emisyon
+              - generic [ref=e367]: 58.2 tCO₂e · Haz · 2025 dönemi
+      - generic [ref=e369]:
+        - generic [ref=e370]:
+          - generic [ref=e371]:
+            - generic [ref=e372]: § 03 — Akış
+            - heading "Platform nasıl çalışır?" [level=2] [ref=e373]
+          - paragraph [ref=e374]: Veri girişinden raporlamaya kadar olan süreç tek bir akış olarak kurgulandı. Adımlar birbirinin çıktısı üzerine ilerler.
+        - list [ref=e375]:
+          - listitem [ref=e376]:
+            - generic [ref=e377]:
+              - generic [ref=e378]: "01"
+              - generic [ref=e379]: Adım 1/6
+            - generic [ref=e380]: Firma profili
+            - paragraph [ref=e381]: Faaliyet, kapsam, tesis ve ekip yapısı tanımlanır.
+          - listitem [ref=e384]:
+            - generic [ref=e385]:
+              - generic [ref=e386]: "02"
+              - generic [ref=e387]: Adım 2/6
+            - generic [ref=e388]: Veri girişi
+            - paragraph [ref=e389]: Karbon ve su için referans dönem verileri sisteme aktarılır.
+          - listitem [ref=e392]:
+            - generic [ref=e393]:
+              - generic [ref=e394]: "03"
+              - generic [ref=e395]: Adım 3/6
+            - generic [ref=e396]: Ölçüm & analiz
+            - paragraph [ref=e397]: Sistem; Scope ayrımı, kategori ve süreç bazlı analizi destekler.
+          - listitem [ref=e400]:
+            - generic [ref=e401]:
+              - generic [ref=e402]: "04"
+              - generic [ref=e403]: Adım 4/6
+            - generic [ref=e404]: Dashboard
+            - paragraph [ref=e405]: Sonuçlar gerçek zamanlı panel üzerinden görüntülenir.
+          - listitem [ref=e408]:
+            - generic [ref=e409]:
+              - generic [ref=e410]: "05"
+              - generic [ref=e411]: Adım 5/6
+            - generic [ref=e412]: Gelişim
+            - paragraph [ref=e413]: Teşvik ve eğitim modülleri ile gelişim alanları desteklenir.
+          - listitem [ref=e416]:
+            - generic [ref=e417]:
+              - generic [ref=e418]: "06"
+              - generic [ref=e419]: Adım 6/6
+            - generic [ref=e420]: Kurumsal takip
+            - paragraph [ref=e421]: CRM yapısı ile süreç ve paydaş yönetimi merkezi tutulur.
+      - generic [ref=e425]:
+        - generic [ref=e426]:
+          - generic [ref=e427]:
+            - generic [ref=e428]: § 04 — Yönetim Paneli
+            - heading "Sadece bir bilgilendirme sitesi değil; gerçek bir yönetim platformu." [level=2] [ref=e429]:
+              - text: Sadece bir bilgilendirme sitesi değil;
+              - text: gerçek bir yönetim platformu.
+          - paragraph [ref=e430]: EcoPilot; kurumsal kullanıcı paneli, admin yönetimi, rol bazlı erişim ve şirket bazlı veri ayrımı ile uçtan uca bir yönetim aracı olarak çalışır.
+        - generic [ref=e431]:
+          - button "Kurumsal kullanıcı" [ref=e432]
+          - button "Admin paneli" [ref=e433]
+          - generic [ref=e434]: canlı önizleme · static
+        - generic [ref=e436]:
+          - generic [ref=e437]:
+            - generic [ref=e442]: EcoPilot · Dashboard
+            - generic [ref=e443]: v2.4 · prod
+          - generic [ref=e444]:
+            - complementary [ref=e445]:
+              - generic [ref=e446]:
+                - generic [ref=e447]: Workspace
+                - generic [ref=e448]: Plastik A.Ş.
+                - generic [ref=e449]: Bursa · OSB
+              - navigation [ref=e450]:
+                - generic [ref=e451]:
+                  - generic [ref=e452]: ■
+                  - generic [ref=e453]: Genel Bakış
+                - generic [ref=e454]:
+                  - generic [ref=e455]: ◇
+                  - generic [ref=e456]: Karbon Ayak İzi
+                - generic [ref=e457]:
+                  - generic [ref=e458]: ◇
+                  - generic [ref=e459]: Su Ayak İzi
+                - generic [ref=e460]:
+                  - generic [ref=e461]: ▢
+                  - generic [ref=e462]: Teşvik & Hibe
+                - generic [ref=e463]:
+                  - generic [ref=e464]: ▢
+                  - generic [ref=e465]: CRM
+                - generic [ref=e466]:
+                  - generic [ref=e467]: ▢
+                  - generic [ref=e468]: Eğitim
+                - generic [ref=e469]:
+                  - generic [ref=e470]: ▦
+                  - generic [ref=e471]: Raporlar
+                - generic [ref=e472]:
+                  - generic [ref=e473]: ✕
+                  - generic [ref=e474]: Ayarlar
+              - generic [ref=e476]:
+                - generic [ref=e477]: MK
+                - generic [ref=e478]:
+                  - generic [ref=e479]: M. Kaya
+                  - generic [ref=e480]: Sürd. Mgr.
+            - generic [ref=e481]:
+              - generic [ref=e482]:
+                - generic [ref=e483]:
+                  - generic [ref=e484]: Genel Bakış
+                  - generic [ref=e485]: Karbon & Su · 2025
+                - generic [ref=e486]:
+                  - generic [ref=e487]: "2024"
+                  - generic [ref=e488]: "2025"
+              - generic [ref=e489]:
+                - generic [ref=e490]:
+                  - generic [ref=e491]: Karbon (Scope 1+2)
+                  - generic [ref=e492]:
+                    - generic [ref=e493]: "734"
+                    - generic [ref=e494]: tCO₂e
+                  - generic [ref=e495]:
+                    - generic [ref=e496]: ↓ 12.4%
+                    - generic [ref=e497]: YoY
+                - generic [ref=e498]:
+                  - generic [ref=e499]: Su Çekimi
+                  - generic [ref=e500]:
+                    - generic [ref=e501]: "18.4"
+                    - generic [ref=e502]: bin m³
+                  - generic [ref=e503]:
+                    - generic [ref=e504]: ↓ 9.1%
+                    - generic [ref=e505]: YoY
+                - generic [ref=e506]:
+                  - generic [ref=e507]: Açık Teşvik
+                  - generic [ref=e508]:
+                    - generic [ref=e509]: "14"
+                    - generic [ref=e510]: başvuru
+                - generic [ref=e511]:
+                  - generic [ref=e512]: Eğitim
+                  - generic [ref=e513]:
+                    - generic [ref=e514]: 78%
+                    - generic [ref=e515]: ekip
+                  - generic [ref=e516]:
+                    - generic [ref=e517]: ↓ 6 pt
+                    - generic [ref=e518]: YoY
+              - generic [ref=e519]:
+                - generic [ref=e520]:
+                  - generic [ref=e521]:
+                    - generic [ref=e522]:
+                      - generic [ref=e523]: Aylık Emisyon
+                      - generic [ref=e524]: Karbon (tCO₂e) · 2025
+                    - generic [ref=e526]: Ölçüm
+                  - generic [ref=e541]:
+                    - generic [ref=e542]: Oca
+                    - generic [ref=e543]: Şub
+                    - generic [ref=e544]: Mar
+                    - generic [ref=e545]: Nis
+                    - generic [ref=e546]: May
+                    - generic [ref=e547]: Haz
+                    - generic [ref=e548]: Tem
+                    - generic [ref=e549]: Ağu
+                    - generic [ref=e550]: Eyl
+                    - generic [ref=e551]: Eki
+                    - generic [ref=e552]: Kas
+                    - generic [ref=e553]: Ara
+                - generic [ref=e554]:
+                  - generic [ref=e555]:
+                    - generic [ref=e556]:
+                      - generic [ref=e557]: Su Yoğunluğu
+                      - generic [ref=e558]: m³ / ton üretim
+                    - generic [ref=e559]:
+                      - generic [ref=e560]: "6.0"
+                      - generic [ref=e561]: ↓ 50% YoY
+                  - img [ref=e562]
+              - generic [ref=e577]:
+                - generic [ref=e578]:
+                  - generic [ref=e579]:
+                    - generic [ref=e580]: Aktivite
+                    - generic [ref=e581]: Son veri kayıtları
+                  - generic [ref=e582]: Bugün · 5
+                - generic [ref=e583]:
+                  - generic [ref=e584]:
+                    - generic [ref=e585]: S2-EL-04
+                    - generic [ref=e586]: Elektrik tüketim verisi onaylandı
+                    - generic [ref=e587]: Scope 2
+                    - generic [ref=e588]: 08:42
+                  - generic [ref=e589]:
+                    - generic [ref=e590]: H2O-PR-12
+                    - generic [ref=e591]: Üretim hattı 3 — su sayacı eşleştirildi
+                    - generic [ref=e592]: Su
+                    - generic [ref=e593]: 08:31
+                  - generic [ref=e594]:
+                    - generic [ref=e595]: TŞV-021
+                    - generic [ref=e596]: TÜBİTAK 1707 — başvuru taslağı kaydedildi
+                    - generic [ref=e597]: Teşvik
+                    - generic [ref=e598]: Dün
+                  - generic [ref=e599]:
+                    - generic [ref=e600]: CRM-118
+                    - generic [ref=e601]: Acme Polimer — kapsamlı görüşme planlandı
+                    - generic [ref=e602]: CRM
+                    - generic [ref=e603]: Dün
+                  - generic [ref=e604]:
+                    - generic [ref=e605]: EDU-09
+                    - generic [ref=e606]: ISO 14064-1 modülü tamamlandı (24/30 kişi)
+                    - generic [ref=e607]: Akademi
+                    - generic [ref=e608]: 2 gün
+        - generic [ref=e609]:
+          - generic [ref=e610]:
+            - generic [ref=e611]: Rol bazlı erişim
+            - paragraph [ref=e612]: Modül ve ekran düzeyinde yetkilendirme.
+          - generic [ref=e613]:
+            - generic [ref=e614]: Çok şirketli yapı
+            - paragraph [ref=e615]: Şirket bazlı veri ayrımı ve denetim izi.
+          - generic [ref=e616]:
+            - generic [ref=e617]: Raporlama
+            - paragraph [ref=e618]: Dönemsel kıyas ve dışa aktarım.
+          - generic [ref=e619]:
+            - generic [ref=e620]: Modüler yetki
+            - paragraph [ref=e621]: Modül bazlı atama ve onay zinciri.
+      - generic [ref=e624]:
+        - generic [ref=e625]:
+          - generic [ref=e626]: § 05 — Sektörel Yaklaşım
+          - heading "Plastik sanayisinin sürdürülebilirlik ihtiyaçlarına göre tasarlandı." [level=2] [ref=e627]
+          - paragraph [ref=e628]: EcoPilot; plastik sektöründeki üretim süreçleri, hammadde kullanımı, enerji tüketimi ve çevresel raporlama beklentileri dikkate alınarak tasarlandı. BTSO Plastik Komitesi için geliştirilen bu yapı sektörün dönüşüm hedeflerine dijital altyapı kazandırmayı amaçlar.
+        - generic [ref=e629]:
+          - generic [ref=e630]:
+            - generic [ref=e631]:
+              - generic [ref=e632]:
+                - img [ref=e633]
+                - generic [ref=e635]: Enerji tüketimi
+                - generic [ref=e636]: Süreç bazlı
+              - generic [ref=e637]:
+                - img [ref=e638]
+                - generic [ref=e642]: Hammadde
+                - generic [ref=e643]: Polimer girdi
+              - generic [ref=e644]:
+                - img [ref=e645]
+                - generic [ref=e648]: Su kullanımı
+                - generic [ref=e649]: Proses + soğutma
+              - generic [ref=e650]:
+                - img [ref=e651]
+                - generic [ref=e654]: Emisyon
+                - generic [ref=e655]: Scope 1·2·3
+            - generic [ref=e656]:
+              - generic [ref=e657]: Kapsam alanları
+              - generic [ref=e658]:
+                - generic [ref=e659]: Enjeksiyon
+                - generic [ref=e660]: Ekstrüzyon
+                - generic [ref=e661]: Termoform
+                - generic [ref=e662]: Blow molding
+                - generic [ref=e663]: Geri dönüşüm
+                - generic [ref=e664]: Kompound
+                - generic [ref=e665]: Ambalaj
+                - generic [ref=e666]: Otomotiv tedarik
+                - generic [ref=e667]: Beyaz eşya tedarik
+                - generic [ref=e668]: İnşaat profilleri
+          - generic [ref=e669]:
+            - generic [ref=e670]: "\"Plastik sektörünün dönüşümünü ölçülebilir ve yönetilebilir kılmak için kurgulanan ortak bir dijital altyapı.\""
+            - generic [ref=e671]:
+              - generic [ref=e672]: Komite paydaşı
+              - generic [ref=e673]: BTSO Plastik Komitesi
+      - generic [ref=e676]:
+        - generic [ref=e677]:
+          - generic [ref=e678]: § 06 — Teknoloji Geliştirme
+          - heading "Teknoloji geliştirme süreci Monolith Yazılım tarafından yürütüldü." [level=2] [ref=e679]:
+            - text: Teknoloji geliştirme süreci
+            - text: Monolith Yazılım tarafından yürütüldü.
+          - paragraph [ref=e680]: Monolith Yazılım; EcoPilot projesinin yazılım mimarisi, kullanıcı arayüzü, yönetim paneli, modül yapısı ve dijital platform altyapısının geliştirilmesini üstlendi.
+          - generic [ref=e681]:
+            - generic [ref=e682]:
+              - generic [ref=e683]: Yazılım mimarisi
+              - paragraph [ref=e684]: Modüler servis yapısı, denetim izi ve yetkilendirme.
+            - generic [ref=e685]:
+              - generic [ref=e686]: Arayüz tasarımı
+              - paragraph [ref=e687]: Kurumsal kullanıcı paneli ve admin görünümleri.
+            - generic [ref=e688]:
+              - generic [ref=e689]: Modül yapısı
+              - paragraph [ref=e690]: Karbon, su, teşvik, CRM, eğitim — ortak veri modeli.
+            - generic [ref=e691]:
+              - generic [ref=e692]: Platform altyapısı
+              - paragraph [ref=e693]: Çok şirketli, rol bazlı, raporlamaya hazır.
+        - complementary [ref=e694]:
+          - generic [ref=e695]:
+            - generic [ref=e696]: Çözüm ortağı
+            - generic [ref=e697]: Monolith Yazılım
+            - paragraph [ref=e698]: Kurumsal yazılım, dijital dönüşüm ve sürdürülebilirlik odaklı platform geliştirme. EcoPilot'un teknoloji geliştirme ve yazılım altyapısını hayata geçiren çözüm ortağı.
+            - generic [ref=e699]:
+              - generic [ref=e700]:
+                - term [ref=e701]: Rol
+                - definition [ref=e702]: Teknoloji geliştirici
+              - generic [ref=e703]:
+                - term [ref=e704]: Domain
+                - definition [ref=e705]: monolithyazilim.com
+              - generic [ref=e706]:
+                - term [ref=e707]: Kapsam
+                - definition [ref=e708]: Platform · Modüller · Admin
+              - generic [ref=e709]:
+                - term [ref=e710]: Yöntem
+                - definition [ref=e711]: Modüler · ölçeklenebilir
+            - link "Monolith Yazılım ile İletişime Geç" [ref=e712] [cursor=pointer]:
+              - /url: "#iletisim"
+              - text: Monolith Yazılım ile İletişime Geç
+              - img [ref=e713]
+      - generic [ref=e718]:
+        - generic [ref=e719]:
+          - generic [ref=e720]: § 07 — Güvenlik & Yetkilendirme
+          - heading "Kurumsal yapıya uygun erişim modeli." [level=2] [ref=e721]:
+            - text: Kurumsal yapıya
+            - text: uygun erişim modeli.
+          - paragraph [ref=e722]: Platform; komite paydaşları, danışmanlar ve şirket ekipleri için ayrı rollerle çalışır. Veri sahipliği, sorumluluk ve denetim izi açıkça tanımlıdır.
+        - generic [ref=e723]:
+          - generic [ref=e724]:
+            - img [ref=e725]
+            - generic [ref=e730]: Rol bazlı erişim
+            - paragraph [ref=e731]: Yönetici, operatör ve yalnız‑okuma rolleri.
+          - generic [ref=e732]:
+            - img [ref=e733]
+            - generic [ref=e737]: Şirket bazlı veri ayrımı
+            - paragraph [ref=e738]: Her şirketin verisi izole çalışır.
+          - generic [ref=e739]:
+            - img [ref=e740]
+            - generic [ref=e743]: Admin yönetimi
+            - paragraph [ref=e744]: Komite paydaşları için merkezi panel.
+          - generic [ref=e745]:
+            - img [ref=e746]
+            - generic [ref=e750]: Kurumsal veri yönetimi
+            - paragraph [ref=e751]: Denetim izi ve sürüm geçmişi.
+      - generic [ref=e754]:
+        - generic [ref=e755]:
+          - generic [ref=e756]: § 08 — İletişim
+          - heading "Sürdürülebilirlik süreçlerini ölçülebilir hale getirin." [level=2] [ref=e757]:
+            - text: Sürdürülebilirlik süreçlerini
+            - text: ölçülebilir hale getirin.
+          - paragraph [ref=e758]: EcoPilot; karbon ayak izi, su ayak izi, teşvik takibi, CRM ve eğitim süreçlerini tek platformda bir araya getirerek plastik sektörünün dijital sürdürülebilirlik dönüşümünü destekler.
+        - generic [ref=e759]:
+          - link "EcoPilot'u İncele" [ref=e760] [cursor=pointer]:
+            - /url: "#iletisim"
+            - text: EcoPilot'u İncele
+            - img [ref=e761]
+          - link "Monolith Yazılım ile İletişim" [ref=e763] [cursor=pointer]:
+            - /url: mailto:info@monolithyazilim.com
+            - text: Monolith Yazılım ile İletişim
+            - img [ref=e764]
+          - generic [ref=e767]: info@monolithyazilim.com
+      - generic [ref=e769]:
+        - generic [ref=e770]:
+          - generic [ref=e771]:
+            - generic [ref=e772]:
+              - generic [ref=e773]: EcoPilot
+              - generic [ref=e774]: by Monolith Yazılım
+            - paragraph [ref=e775]: EcoPilot, Monolith Yazılım tarafından BTSO Plastik Komitesi için geliştirilen kurumsal sürdürülebilirlik ölçüm ve yönetim platformudur.
+            - generic [ref=e776]:
+              - generic [ref=e777]:
+                - generic [ref=e778]: Geliştiren
+                - generic [ref=e779]: Monolith Yazılım
+              - generic [ref=e780]:
+                - generic [ref=e781]: Geliştirildi
+                - generic [ref=e782]: BTSO Plastik Komitesi
+          - generic [ref=e783]:
+            - generic [ref=e784]: Modüller
+            - list [ref=e785]:
+              - listitem [ref=e786]:
+                - link "Karbon" [ref=e787] [cursor=pointer]:
+                  - /url: "#moduller"
+              - listitem [ref=e788]:
+                - link "Su" [ref=e789] [cursor=pointer]:
+                  - /url: "#moduller"
+              - listitem [ref=e790]:
+                - link "Teşvik" [ref=e791] [cursor=pointer]:
+                  - /url: "#moduller"
+              - listitem [ref=e792]:
+                - link "CRM" [ref=e793] [cursor=pointer]:
+                  - /url: "#moduller"
+              - listitem [ref=e794]:
+                - link "Akademi" [ref=e795] [cursor=pointer]:
+                  - /url: "#moduller"
+          - generic [ref=e796]:
+            - generic [ref=e797]: Platform
+            - list [ref=e798]:
+              - listitem [ref=e799]:
+                - link "Nasıl Çalışır?" [ref=e800] [cursor=pointer]:
+                  - /url: "#nasil-calisir"
+              - listitem [ref=e801]:
+                - link "Yönetim Paneli" [ref=e802] [cursor=pointer]:
+                  - /url: "#platform"
+              - listitem [ref=e803]:
+                - link "Plastik Sektörü" [ref=e804] [cursor=pointer]:
+                  - /url: "#plastik-sektoru"
+              - listitem [ref=e805]:
+                - link "Monolith Yazılım" [ref=e806] [cursor=pointer]:
+                  - /url: "#monolith"
+          - generic [ref=e807]:
+            - generic [ref=e808]: İletişim
+            - list [ref=e809]:
+              - listitem [ref=e810]: info@monolithyazilim.com
+              - listitem [ref=e811]: Bursa, Türkiye
+            - link "Bilgi talebi gönder" [ref=e812] [cursor=pointer]:
+              - /url: "#iletisim"
+              - text: Bilgi talebi gönder
+              - img [ref=e813]
+        - generic [ref=e816]:
+          - generic [ref=e817]: © 2026 Monolith Yazılım · EcoPilot · Tüm hakları saklıdır.
+          - generic [ref=e818]:
+            - generic [ref=e819]: BTSO Plastik Komitesi için geliştirildi
+            - generic [ref=e820]: v2.4 · 2026
+  - alert [ref=e821]
